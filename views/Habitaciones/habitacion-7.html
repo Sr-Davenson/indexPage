@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel</title>
+
+<link rel="stylesheet" href="../styles/style.css">
+
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+    <nav>
+    <img src="../resources/logo.png" alt="logo" style="width: 120px; height: 60px; position: relative; align-items: end;">
+
+      <a href="../index.html">Inicio</a>
+
+      <a href="habitaciones.html">Habitaciones</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+  </header>
+
+  <main class="habitacion-detalle">
+    <h2>Habitación Individual</h2>
+    <div class="galeria">
+      <img src="recursos/hab1 (1).webp" alt="">
+      <img src="recursos/hab1 (2).webp" alt="">
+    </div>
+    <p>
+      Cómoda habitación para una persona. Incluye baño privado, Wi-Fi, televisión, desayuno y servicio de habitación.
+    </p>
+
+    <form class="formReserva" data-habitacion="Individual">
+      <label>Fecha de entrada:</label>
+      <input type="date" id="entrada-ind" required>
+
+      <label>Fecha de salida:</label>
+      <input type="date" id="salida-ind" required>
+
+      <button type="submit">Reservar por WhatsApp</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Hotel Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,401 @@
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #000000;
+            background-color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* --- HEADER / NAVEGACIÓN --- */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #c5c5c5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Contenedor del logo con dimensiones controladas */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 45px; /* Altura ideal para la barra de navegación */
+            width: auto;
+            display: block;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: color 0.2s;
+            color: #000000;
+            padding: 5px;
+        }
+
+        .main-nav a:hover {
+            background-color: #EDEDED;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 0.875rem;
+            color: #000000;
+        }
+
+        .btn-contacto {
+            display: inline-block;
+            background-color: #e5e7eb;
+            color: #000000;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.75rem 2.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            align-self: flex-start;
+        }
+
+        .btn-contacto:hover {
+            background-color: #778DB5;
+            color: #ffffff;
+        }
+
+        /* --- SECCIÓN DIVISORA --- */
+        .divider-blue {
+            background-color:#a3b4cf;
+            height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- SECCIÓN SERVICIOS --- */
+        .servicios-section {
+            background-color:#e6c5b0;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .servicios-intro {
+            max-width: 768px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .servicios-intro h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .servicios-intro p {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #2d2d2d;
+        }
+
+        .services-container {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-preview {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .preview-1 { background-color: #111827; } 
+        .preview-2 { background-color: #0891b2; } 
+        .preview-3 { background-color: #e5e7eb; border: 2px dashed #9ca3af; } 
+        .preview-4 { background-color: #e5e7eb; border: 2px dashed #9ca3af; } 
+
+        .icon-code::before { content: "</>"; color: #34d399; font-family: monospace; font-size: 2rem; font-weight: bold; }
+        .icon-design::before { content: "📱"; font-size: 2.5rem; }
+        .icon-social::before { content: "🔗"; font-size: 2.5rem; }
+        .icon-support::before { content: "⚙️"; font-size: 2.5rem; }
+
+        .service-card p {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #374151;
+            padding: 0 0.5rem;
+        }
+
+        /* --- SECCIÓN PORTAFOLIO --- */
+        .portafolio-section {
+            background-color: #a3b4cf;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .portafolio-section h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .portafolio-section p {
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .portafolio-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            background-color: rgba(255, 255, 255, 0.4);
+            aspect-ratio: 16 / 9;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+
+        /* --- SECCIÓN PLANES --- */
+        .planes-section {
+            padding: 5rem 2rem;
+            background-color: #ffffff;
+        }
+
+        .planes-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .plan-card {
+            background-color:#e5e7eb;
+            border-radius: 2.5rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 24rem;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .plan-card h3 {
+            font-size: 1.125rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .plan-card li {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #374151;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .plan-card li::before {
+            content: "•";
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background-color: #7b91ba;
+            color: #000000;
+            padding: 4rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        /* Contenedor del logo en el Footer */
+        .footer-logo-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-logo-wrapper img {
+            height: 120px; /* Un poco más grande en el footer tal como en tus imágenes */
+            width: auto;
+            display: block;
+        }
+
+        .footer-column {
+            text-align: center;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-block {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #2d2d2d;
+            margin-bottom: 1rem;
+        }
+
+        .contact-name {
+            font-weight: 900;
+            color: #000000;
+        }
+
+        .contact-separator {
+            width: 2rem;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.3);
+            margin: 1rem auto;
+        }
+
+        .footer-services-list {
+            list-style: none;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #2d2d2d;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .footer-services-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- MEDIA QUERIES (RESPONSIVE) --- */
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5rem 5rem;
+            }
+
+            .btn-contacto {
+                align-self: auto;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portafolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .planes-container {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(3, 1fr);
+                align-items: start;
+            }
+
+            .footer-logo-wrapper {
+                justify-content: flex-start;
+            }
+
+            .footer-column {
+                text-align: left;
+            }
+
+            .contact-separator {
+                margin: 1rem 0;
+            }
+
+            .footer-services-list {
+                display: block;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
