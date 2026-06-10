@@ -365,14 +365,13 @@ body {
     align-items: center;
     justify-content: center;
     transition: transform 0.2s, opacity 0.2s;
-    width: 48px;
+    width: 80px;
 }
 
 .carousel-arrow img {
-    width: 48px;
+    width: 200px;
     height: auto;
     display: block;
-    /* quita el fondo negro de los PNG con mix-blend-mode */
     mix-blend-mode: multiply;
 }
 
