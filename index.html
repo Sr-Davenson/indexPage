@@ -14,132 +14,170 @@
 </head>
 
 <body>
+    <!-- ========== HEADER ========== -->
     <header class="site-header">
         <div class="logo-container">
             <a href="index.html" class="logo-index">
                 <img src="assets/resources/logo.png" alt="INDEX LOGO">
             </a>
         </div>
+
+        <!-- Móvil: tema + hamburguesa -->
         <div class="header-actions">
             <button id="theme-toggle" class="btn-theme" aria-label="Cambiar modo de color">
-                <img id="theme-icon" src="assets/resources/light_mode.svg" alt="Icono de modo de luz">
+                <img id="theme-icon" src="assets/resources/light_mode.svg" alt="Icono modo">
             </button>
-
             <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
 
+        <!-- Nav escritorio (incluye botón tema desktop) -->
         <nav class="main-nav" id="main-nav">
             <a href="#servicios">SERVICIOS</a>
             <a href="#portafolio">PORTAFOLIO</a>
             <a href="#contacto">CONTÁCTENOS</a>
             <button id="theme-toggle-desktop" class="btn-theme btn-theme-desktop" aria-label="Cambiar modo de color">
-                <img id="theme-icon-desktop" src="assets/resources/light_mode.svg" alt="Icono de modo de luz">
+                <img id="theme-icon-desktop" src="assets/resources/light_mode.svg" alt="Icono modo">
             </button>
         </nav>
     </header>
 
+    <!-- ========== HERO ========== -->
     <section class="hero">
         <div class="hero-content">
-            <h1>EXPANDE TU PRESENCIA EN LÍNEA</h1>
-            <p>Ayudamos a negocios pequeños a diseñar sus páginas web rápidas y funcionales para atraer más clientes.
-            </p>
+            <h1>PLASMA TUS IDEAS EN LA WEB</h1>
+            <p>Haz que tu negocio destaque en internet. Diseñamos páginas web a tu medida que impulsan tu visibilidad y conectan con tu público ideal.</p>
+            <br>
+            <a href="#servicios" class="hero-cta-text"><b>VER NUESTROS SERVICIOS</b></a>
         </div>
-        <a href="#planes" class="btn-contacto">VER PLANES</a>
+        <div class="hero-img-wrap">
+            <img src="assets/resources/Plasma tus ideas.png" alt="Plasma tus ideas">
+        </div>
     </section>
 
     <div class="divider-line"></div>
 
+    <!-- ========== SERVICIOS — intro + botón ========== -->
     <section id="servicios" class="servicios-section">
-        <div class="servicios-intro">
-            <h2>Servicios</h2>
-            <p>Creamos páginas web y soluciones digitales simples, rápidas y efectivas para negocios que quieren tener
-                presencia online, conseguir más clientes y crecer sin complicaciones técnicas.</p>
+        <div class="servicios-intro-row">
+            <div class="servicios-intro">
+                <h2>SERVICIOS</h2>
+                <p>Más allá del código, ofrecemos servicios estratégicos diseñados para maximizar tu visibilidad en internet y garantizar la estabilidad de tu negocio. Llevamos tu proyecto tecnológico de principio a fin.</p>
+            </div>
+            <a href="#planes" class="btn-contacto">VER PLANES</a>
         </div>
+    </section>
 
+    <!-- ========== TARJETAS DE SERVICIOS — módulo separado ========== -->
+    <section class="servicios-cards-section">
         <div class="services-container">
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="card-preview preview-1"></div>
+                    <div class="card-preview preview-1">
+                        <img src="assets/resources/Servicio 1.png" alt="servicio1">
+                    </div>
                     <p>Desarrollo de páginas web sencillas</p>
                 </div>
                 <div class="service-card">
-                    <div class="card-preview preview-2"></div>
+                    <div class="card-preview preview-2">
+                        <img src="assets/resources/Servicio 2.png" alt="servicio2">
+                    </div>
                     <p>Rediseño y modernización de sitios web</p>
                 </div>
                 <div class="service-card">
-                    <div class="card-preview preview-3"></div>
+                    <div class="card-preview preview-3">
+                        <img src="assets/resources/Servicio 3.png" alt="servicio3">
+                    </div>
                     <p>Integración de redes sociales y canales de WhatsApp</p>
                 </div>
                 <div class="service-card">
-                    <div class="card-preview preview-4"></div>
+                    <div class="card-preview preview-4">
+                        <img src="assets/resources/Servicio 4.png" alt="servicio4">
+                    </div>
                     <p>Soporte y mantenimiento web</p>
                 </div>
             </div>
         </div>
     </section>
+<br>
+<br>
+    <!-- ========== PORTAFOLIO — título separado del carrusel ========== -->
+    <section id="portafolio" class="portafolio-intro-section">
+        <h2>PORTAFOLIO</h2>
+        <p>Descubre cómo ayudamos a nuestros clientes a mejorar su visibilidad digital. Cada página web que desarrollamos nace con un propósito claro: multiplicar la visibilidad de nuestros clientes y transformar su presencia digital.</p>
+    </section>
 
-    <section id="portafolio" class="portafolio-section">
-        <h2>Portafolios</h2>
-        <p>Estas son algunas páginas web desarrolladas por nuestro equipo.</p>
-
+    <section class="portafolio-carousel-section">
         <div class="carousel-container">
-            <button class="carousel-arrow arrow-left\" aria-label="Anterior">&#10094;</button>
-
+            <button class="carousel-arrow arrow-left" aria-label="Anterior"><img src="assets/resources/Botón Anterior.png" alt="anterior"></button>
             <div class="carousel-window">
                 <div class="portfolio-item active">
-                    <img src="assets/resources/iluska-mockup.png" alt="Proyecto Iluska">
+                    <img src="assets/resources/Carrusel De Portafolio 1.png" alt="Portafolio 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/resources/Carrusel De Portafolio 2.png" alt="Portafolio 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/resources/Carrusel De Portafolio 3.png" alt="Portafolio 3">
                 </div>
             </div>
-
-            <button class="carousel-arrow arrow-right" aria-label="Siguiente    ">&#10095;</button>
+            <button class="carousel-arrow arrow-right" aria-label="Siguiente"><img src="assets/resources/Botón De Siguiente.png" alt="siguiente"></button>
         </div>
     </section>
 
-    <section id="planes" class="planes-section">
+    <!-- ========== PLANES ========== -->
+    <section id="planes" class="planes-intro-section">
+        <h2>TU PLAN A LA MEDIDA</h2>
+        <p>Elige el plan ideal para tu proyecto.<br>Diseñamos experiencias digitales funcionales, modernas y <br> preparadas para impulsar tu presencia en internet.</p>
+    </section>
+
+    <section class="planes-cards-section">
         <div class="planes-container">
 
-            <div class="plan-card plan-avanzado">
-                <h3>PLAN AVANZADO</h3>
-                <ul>
-                    <li>Diseño web personalizado</li>
-                    <li>Diseño UX/UI</li>
-                    <li>Sitio responsive</li>
-                    <li>Banner dinámico</li>
-                    <li>Integración de WhatsApp y redes sociales</li>
-                    <li>Google Maps</li>
-                    <li>Optimización SEO básica</li>
-                    <li>Hasta 3 secciones de navegación</li>
-                    <li>Soporte y capacitación</li>
-                </ul>
+            <div class="plan-card plan-estandar">
+                <div class="plan-card-body">
+                    <h3>PLAN ESTÁNDAR:</h3>
+                    <ul>
+                        <li>Landing page profesional</li>
+                        <li>Diseño responsive</li>
+                        <li>Integración de redes sociales</li>
+                        <li>Banner promocional</li>
+                        <li>Optimización básica SEO</li>
+                        <li>Soporte y capacitación básica</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/+573219306406" target="_blank" class="btn-plan">CONTACTAR</a>
             </div>
 
-            <div class="plan-card plan-estandar">
-                <h3>PLAN ESTÁNDAR:</h3>
-                <ul>
-                    <li>Landing page profesional</li>
-                    <li>Diseño responsive</li>
-                    <li>Integración de redes sociales</li>
-                    <li>Banner promocional</li>
-                    <li>Optimización básica SEO</li>
-                    <li>Soporte y capacitación básica</li>
-                </ul>
+            <div class="plan-card plan-avanzado">
+                <div class="plan-card-body">
+                    <h3>PLAN AVANZADO</h3>
+                    <ul>
+                        <li>Diseño web personalizado</li>
+                        <li>Diseño UX/UI</li>
+                        <li>Sitio responsive</li>
+                        <li>Banner dinámico</li>
+                        <li>Integración de WhatsApp y redes sociales</li>
+                        <li>Google Maps</li>
+                        <li>Optimización SEO básica</li>
+                        <li>Hasta 3 secciones de navegación</li>
+                        <li>Soporte y capacitación</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/+573219306406" target="_blank" class="btn-plan">CONTACTAR</a>
             </div>
 
         </div>
     </section>
 
+    <!-- ========== FOOTER ========== -->
     <footer id="contacto" class="site-footer">
         <div class="footer-container">
-
             <div class="footer-logo-wrapper">
                 <img src="assets/resources/logo.png" alt="INDEX LOGO LARGE">
             </div>
-
-            <div class="footer-column text-center">
+            <div class="footer-column">
                 <h4>Datos de contacto</h4>
                 <div class="contact-block">
                     <p class="contact-name">Daniel Rodríguez</p>
@@ -156,7 +194,6 @@
                     <p>Cel: 311 850 4976</p>
                 </div>
             </div>
-
             <div class="footer-column">
                 <h4>Servicios</h4>
                 <ul class="footer-services-list">
@@ -166,14 +203,15 @@
                     <li>• Soporte y mantenimiento web</li>
                 </ul>
             </div>
-
         </div>
     </footer>
+
     <a href="https://wa.me/+573219306406" target="_blank" class="boton-whatsapp"><i class="fab fa-whatsapp"></i></a>
+
     <script>
-        // Menú hamburguesa
+        // ── Menú hamburguesa ──────────────────────────────────────────────
         const hamburger = document.getElementById('hamburger');
-        const mainNav = document.getElementById('main-nav');
+        const mainNav   = document.getElementById('main-nav');
 
         hamburger.addEventListener('click', () => {
             const isOpen = mainNav.classList.toggle('nav-open');
@@ -181,7 +219,6 @@
             hamburger.setAttribute('aria-expanded', isOpen);
         });
 
-        // Cierra el menú al hacer clic en un enlace
         mainNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('nav-open');
@@ -190,37 +227,30 @@
             });
         });
 
+        // ── Scroll suave ──────────────────────────────────────────────────
         document.querySelectorAll('.main-nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Evita el salto brusco instantáneo
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start' // Alinea el inicio de la sección con la parte superior
-                    });
-                }
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const themeToggleDesktop = document.getElementById('theme-toggle-desktop');
-        const themeIconDesktop = document.getElementById('theme-icon-desktop');
 
+        // ── Tema oscuro ───────────────────────────────────────────────────
+        const themeToggle        = document.getElementById('theme-toggle');
+        const themeIcon          = document.getElementById('theme-icon');
+        const themeToggleDesktop = document.getElementById('theme-toggle-desktop');
+        const themeIconDesktop   = document.getElementById('theme-icon-desktop');
         const ICON_LIGHT = 'assets/resources/light_mode.svg';
-        const ICON_DARK = 'assets/resources/dark_mode.svg';
+        const ICON_DARK  = 'assets/resources/dark_mode.svg';
 
         function applyTheme(dark) {
             document.body.classList.toggle('dark-mode', dark);
             const icon = dark ? ICON_DARK : ICON_LIGHT;
-            themeIcon.src = icon;
+            themeIcon.src        = icon;
             themeIconDesktop.src = icon;
         }
 
-        // Al cargar la página, restaura el tema guardado
         applyTheme(localStorage.getItem('theme') === 'dark');
 
         function toggleTheme() {
@@ -231,7 +261,24 @@
 
         themeToggle.addEventListener('click', toggleTheme);
         themeToggleDesktop.addEventListener('click', toggleTheme);
+
+        // ── Carrusel ──────────────────────────────────────────────────────
+        const items     = document.querySelectorAll('.portfolio-item');
+        const arrowLeft  = document.querySelector('.arrow-left');
+        const arrowRight = document.querySelector('.arrow-right');
+        let current = 0;
+
+        function showSlide(n) {
+            items[current].classList.remove('active');
+            current = (n + items.length) % items.length;
+            items[current].classList.add('active');
+        }
+
+        arrowLeft.addEventListener('click',  () => showSlide(current - 1));
+        arrowRight.addEventListener('click', () => showSlide(current + 1));
+
+        // Auto-avance cada 4 s
+        setInterval(() => showSlide(current + 1), 4000);
     </script>
 </body>
-
 </html>
