@@ -168,6 +168,19 @@ body {
     object-fit: contain;
 }
 
+/* Tablet (iPad): reducir padding y limitar imagen para evitar espacio sobrante */
+@media (min-width: 601px) and (max-width: 1023px) {
+    .hero {
+        padding: 3rem 2rem 0;
+    }
+    .hero-content {
+        margin-bottom: 1.2rem;
+    }
+    .hero-img-wrap {
+        max-width: 580px;
+    }
+}
+
 .divider-line { height: 1px; background: rgba(0,0,0,0.08); }
 
 /* ============================================================
@@ -369,7 +382,7 @@ body {
 }
 
 .carousel-arrow img {
-    width: 200px;
+    width: 80px;
     height: auto;
     display: block;
     mix-blend-mode: multiply;
