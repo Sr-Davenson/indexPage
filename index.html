@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="shortcut icon" href="assets/resources/icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/CSS/styleIndex.css">
     <title>INDEX - Diseños Web</title>
@@ -15,33 +12,37 @@
 
 <body>
     <header class="site-header">
-        <div class="logo-container">
-            <a href="index.html" class="logo-index">
+    <div class="logo-container">
+        <a href="index.html" class="logo-index">
                 <img src="assets/resources/logo.png" alt="INDEX LOGO">
-            </a>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        </a>
+    </div>
+<div class="header-actions">
+    <button id="theme-toggle" class="btn-theme" aria-label="Cambiar modo de color">
+        <img id="theme-icon" src="assets/resources/light_mode.svg" alt="Icono de modo de luz">
+    </button>
 
-        <nav class="main-nav" id="main-nav">
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<nav class="main-nav" id="main-nav">
             <a href="#servicios">SERVICIOS</a>
             <a href="#portafolio">PORTAFOLIO</a>
             <a href="#contacto">CONTÁCTENOS</a>
-
-            <button id="theme-toggle" class="btn-theme" aria-label="Cambiar modo de color">
-                <img id="theme-icon" src="assets/resources/light_mode.svg" alt="Icono de modo de luz">
+            <button id="theme-toggle-desktop" class="btn-theme btn-theme-desktop" aria-label="Cambiar modo de color">
+                <img id="theme-icon-desktop" src="assets/resources/light_mode.svg" alt="Icono de modo de luz">
             </button>
         </nav>
-    </header>
+</header>
 
-    <section class="hero">
+<section class="hero">
         <div class="hero-content">
             <h1>EXPANDE TU PRESENCIA EN LÍNEA</h1>
-            <p>Ayudamos a negocios pequeños a diseñar sus páginas web rápidas y funcionales para atraer más clientes.
-            </p>
+            <p>Ayudamos a negocios pequeños a diseñar sus páginas web rápidas y funcionales para atraer más clientes.</p>
         </div>
         <a href="#planes" class="btn-contacto">VER PLANES</a>
     </section>
@@ -51,8 +52,7 @@
     <section id="servicios" class="servicios-section">
         <div class="servicios-intro">
             <h2>Servicios</h2>
-            <p>Creamos páginas web y soluciones digitales simples, rápidas y efectivas para negocios que quieren tener
-                presencia online, conseguir más clientes y crecer sin complicaciones técnicas.</p>
+            <p>Creamos páginas web y soluciones digitales simples, rápidas y efectivas para negocios que quieren tener presencia online, conseguir más clientes y crecer sin complicaciones técnicas.</p>
         </div>
 
         <div class="services-container">
@@ -77,26 +77,26 @@
         </div>
     </section>
 
-    <section id="portafolio" class="portafolio-section">
+<section id="portafolio" class="portafolio-section">
         <h2>Portafolios</h2>
         <p>Estas son algunas páginas web desarrolladas por nuestro equipo.</p>
-
+        
         <div class="carousel-container">
             <button class="carousel-arrow arrow-left\" aria-label="Anterior">&#10094;</button>
-
+            
             <div class="carousel-window">
                 <div class="portfolio-item active">
                     <img src="assets/resources/iluska-mockup.png" alt="Proyecto Iluska">
                 </div>
-            </div>
-
+                </div>
+            
             <button class="carousel-arrow arrow-right" aria-label="Siguiente    ">&#10095;</button>
         </div>
     </section>
 
     <section id="planes" class="planes-section">
         <div class="planes-container">
-
+            
             <div class="plan-card plan-avanzado">
                 <h3>PLAN AVANZADO</h3>
                 <ul>
@@ -127,9 +127,9 @@
         </div>
     </section>
 
-    <footer id="contacto" class="site-footer">
+ <footer id="contacto" class="site-footer">
         <div class="footer-container">
-
+            
             <div class="footer-logo-wrapper">
                 <img src="assets/resources/logo.png" alt="INDEX LOGO LARGE">
             </div>
@@ -164,11 +164,11 @@
 
         </div>
     </footer>
-    <a href="https://wa.me/+573219306406" target="_blank" class="boton-whatsapp"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://wa.me/+573219306406" target="_blank" class="boton-whatsapp"><i class="fab fa-whatsapp"></i></a>
     <script>
         // Menú hamburguesa
         const hamburger = document.getElementById('hamburger');
-        const mainNav = document.getElementById('main-nav');
+        const mainNav   = document.getElementById('main-nav');
 
         hamburger.addEventListener('click', () => {
             const isOpen = mainNav.classList.toggle('nav-open');
@@ -200,32 +200,32 @@
                 }
             });
         });
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
+        const themeToggle        = document.getElementById('theme-toggle');
+        const themeIcon          = document.getElementById('theme-icon');
+        const themeToggleDesktop = document.getElementById('theme-toggle-desktop');
+        const themeIconDesktop   = document.getElementById('theme-icon-desktop');
 
         const ICON_LIGHT = 'assets/resources/light_mode.svg';
-        const ICON_DARK = 'assets/resources/dark_mode.svg';
+        const ICON_DARK  = 'assets/resources/dark_mode.svg';
 
-        // Al cargar la página, restaura el tema guardado
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcon.src = ICON_DARK;
-        } else {
-            themeIcon.src = ICON_LIGHT;
+        function applyTheme(dark) {
+            document.body.classList.toggle('dark-mode', dark);
+            const icon = dark ? ICON_DARK : ICON_LIGHT;
+            themeIcon.src        = icon;
+            themeIconDesktop.src = icon;
         }
 
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+        // Al cargar la página, restaura el tema guardado
+        applyTheme(localStorage.getItem('theme') === 'dark');
 
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.src = ICON_DARK;
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeIcon.src = ICON_LIGHT;
-            }
-        });
+        function toggleTheme() {
+            const dark = !document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+            applyTheme(dark);
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleDesktop.addEventListener('click', toggleTheme);
     </script>
 </body>
-
 </html>

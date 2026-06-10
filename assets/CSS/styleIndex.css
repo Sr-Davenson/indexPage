@@ -57,7 +57,7 @@ body.dark-mode {
    BASE
    ========================================================================== */
 body {
-font-family: 'Inter', sans-serif;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
     color: var(--text-main);
     background-color: var(--bg-primary);
     line-height: 1.5;
@@ -710,8 +710,8 @@ font-family: 'Inter', sans-serif;
 
     /* Botón de tema al fondo del panel */
     .btn-theme {
-        margin-top: auto;
-        padding-top: 1.5rem;
+        margin-top: 0;
+        padding-top: 0;
     }
 
     /* Overlay oscuro detrás del panel */
@@ -726,5 +726,36 @@ font-family: 'Inter', sans-serif;
     /* Header más compacto en móvil */
     .site-header {
         padding: 1rem 1.5rem;
+    }
+}
+
+/* Agrupa tema + hamburguesa a la derecha del header */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- Visibilidad de los dos botones de tema --- */
+
+/* Escritorio: botón del nav visible, header-actions oculto */
+.header-actions {
+    display: none;
+}
+
+.btn-theme-desktop {
+    display: flex;
+}
+
+/* Móvil: header-actions visible, botón del nav oculto */
+@media (max-width: 767px) {
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-theme-desktop {
+        display: none;
     }
 }
