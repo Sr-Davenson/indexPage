@@ -34,6 +34,7 @@ html {
     --text-main:           #000000;
     --text-muted:          #333333;
     --btn-planes:          #ffe0b2;
+
 }
 
 body.dark-mode {
@@ -49,6 +50,7 @@ body.dark-mode {
     --text-main:           #1A2235;
     --text-muted:          #e8e5e5;
     --btn-planes:          #415A77;
+    --title: #676767;
 }
 
 /* ==========================================================================
@@ -179,7 +181,7 @@ body {
     font-weight: 900;
     letter-spacing: 0.02em;
     margin-bottom: 1.5rem;
-    color: var(--text-main);
+    color: var(--title);
 }
 
 .hero p {
@@ -344,7 +346,7 @@ body {
 .portafolio-section h2 {
     font-size: 2.2rem;
     font-weight: 900;
-    color: var(--text-main);
+    color: var(--title);
     margin-bottom: 0.5rem;
 }
 
