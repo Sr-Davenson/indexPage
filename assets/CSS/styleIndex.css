@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 140px; /* Ajusta este valor según la altura real de tu header */
 }
 
 body {
@@ -26,6 +27,9 @@ body {
     padding: 1.5rem 4rem;
     background-color: #C2E2EE;   /* Integrado con el fondo del Hero */
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: sticky;            /* Hace que se quede pegado al llegar al tope */
+    top: 0;                      /* Posición exacta donde se congelará */
+    z-index: 1000;
 }
 
 /* Contenedor del Logo (Estilo de la figura image_f14742) */
