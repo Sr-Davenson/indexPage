@@ -10,27 +10,162 @@ html {
     /* Añade esta línea: compensa la altura del header fijo (aprox 120px - 140px) */
     scroll-padding-top: 130px; 
 }
+/* ==========================================================================
+   VARIABLES DE COLOR (Modo Claro por Defecto / Modo Oscuro Adaptado)
+   ========================================================================== */
+:root {
+    /* Modo Claro Novedoso (Pastel) */
+    --bg-primary: #C2E2EE;       /* Celeste pastel principal */
+    --bg-secundary: #C2E2EE;     /* Usado en secciones alternas */
+    --bg-cards: #dbdbdb;         /* Gris de los planes */
+    --bg-footer: #7b91ba;        /* Azul grisáceo footer/logo */
+    --text-main: #000000;        /* Negro para títulos y textos */
+    --text-muted: #333333;       /* Gris oscuro para subtítulos */
+    --btn-planes: #ffebd2;       /* Crema/durazno del botón Hero */
+}
 
+/* Paleta de colores exacta extraída de tu captura en modo oscuro (image_ef7a7c) */
+body.dark-mode {
+    --bg-primary: #181E29;       /* Fondo oscuro profundo del Hero */
+    --bg-secundary: #1E2633;     /* Contraste un poco más claro para Servicios */
+    --bg-cards: #1E2633;         /* Fondos de tarjetas de planes */
+    --bg-footer: #111622;        /* Footer ultra oscuro */
+    --text-main: #A8BCCF;        /* Azul/Gris claro nítido para textos principales */
+    --text-muted: #7E8FA3;       /* Subtextos atenuados */
+    --btn-planes: #415A77;       /* Botón "VER PLANES" adaptado a la oscuridad */
+}
+
+/* ==========================================================================
+   REMPLAZO DE SELECTORES CON VARIABLES
+   ========================================================================== */
 body {
     font-family: 'Trebuchet MS', Arial, sans-serif;
-    color: #000000;              
-    background-color: #C2E2EE;   
+    color: var(--text-main);              
+    background-color: var(--bg-primary);   
     line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave visual */
 }
-/* ==========================================================================
-   2. HEADER / BARRA DE NAVEGACIÓN (SLIDER BAR)
-   ========================================================================== */
+
 .site-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 4rem;
-    background-color: #C2E2EE;   /* Integrado con el fondo del Hero */
+    background-color: var(--bg-primary);   
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    position: sticky;            /* Hace que se quede pegado al llegar al tope */
-    top: 0;                      /* Posición exacta donde se congelará */
+    position: sticky;            
+    top: 0;                      
     z-index: 1000;
+    transition: background-color 0.3s ease;
 }
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center; /* Centra el botón verticalmente con los textos */
+}
+
+/* Modificamos los enlaces del menú para que cambien de color suavemente */
+.main-nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 2rem;
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.hero p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.btn-contacto {
+    display: inline-block;
+    background-color: var(--btn-planes);   
+    color: var(--text-main);              
+    font-weight: 900;            
+    font-size: 0.8rem;           
+    letter-spacing: 0.05em;      
+    padding: 0.7rem 3.5rem;      
+    border-radius: 9999px;       
+    text-decoration: none;       
+    text-align: center;
+    align-self: center;          
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); 
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.servicios-section {
+    background-color: var(--bg-secundary);
+    padding: 5rem 2rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.servicios-intro h2 {
+    color: var(--text-main);
+}
+
+.servicios-intro p {
+    color: var(--text-muted);
+}
+
+.plan-card {
+    background-color: var(--bg-cards);   
+    color: var(--text-main);
+    /* ... Tus demás propiedades de border-radius, padding etc se mantienen igual ... */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.site-footer {
+    background-color: var(--bg-footer);   
+    color: var(--text-main);
+    /* ... Conserva tus rellenos de padding existentes ... */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo estético para el botón contenedor del icono de luz */
+.btn-theme {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.btn-theme:hover {
+    transform: scale(1.1);
+}
+
+.btn-theme img {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
 
 /* Contenedor del Logo (Estilo de la figura image_f14742) */
 .logo-container {
