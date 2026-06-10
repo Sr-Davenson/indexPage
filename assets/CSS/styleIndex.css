@@ -314,7 +314,7 @@ body {
 /* Carrusel en su propio módulo */
 .portafolio-carousel-section {
     background-color: var(--bg-portafolio-car);
-    padding: 3rem 1rem 5rem;
+    padding: 2rem 1rem 4rem;
     transition: background-color 0.3s;
 }
 
@@ -324,21 +324,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .carousel-window {
     flex: 1;
-    max-width: 1050px;
+    min-width: 0;          /* evita desbordamiento en flex */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 16px 50px rgba(0,0,0,0.18);
     position: relative;
-    /* altura mínima para que no colapse antes de cargar */
-    min-height: 200px;
 }
 
-/* Cada slide ocupa el mismo espacio y hace fade */
+/* Cada slide hace fade */
 .portfolio-item {
     position: absolute;
     top: 0; left: 0;
@@ -348,7 +346,6 @@ body {
     pointer-events: none;
 }
 
-/* El activo aparece encima */
 .portfolio-item.active {
     position: relative;
     opacity: 1;
@@ -357,22 +354,40 @@ body {
 
 .portfolio-item img { width: 100%; height: auto; display: block; }
 
+/* Flechas con imagen — sin fondo negro */
 .carousel-arrow {
-    background: none;
+    background: transparent;
     border: none;
-    color: var(--arrow-color);
-    font-size: 2rem;
+    padding: 0;
     cursor: pointer;
-    user-select: none;
-    line-height: 1;
-    transition: transform 0.2s, color 0.2s;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, opacity 0.2s;
+    width: 48px;
 }
-.carousel-arrow:hover { transform: scale(1.15); filter: brightness(0.7); }
+
+.carousel-arrow img {
+    width: 48px;
+    height: auto;
+    display: block;
+    /* quita el fondo negro de los PNG con mix-blend-mode */
+    mix-blend-mode: multiply;
+}
+
+body.dark-mode .carousel-arrow img {
+    mix-blend-mode: normal;
+    filter: brightness(1.2);
+}
+
+.carousel-arrow:hover  { transform: scale(1.12); opacity: 0.8; }
 .carousel-arrow:active { transform: scale(0.92); }
 
 @media (max-width: 600px) {
-    .carousel-arrow { font-size: 2.5rem; }
+    .carousel-arrow { width: 36px; }
+    .carousel-arrow img { width: 36px; }
+    .carousel-container { gap: 0.5rem; }
 }
 
 /* ============================================================
