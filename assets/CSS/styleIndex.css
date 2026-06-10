@@ -7,144 +7,133 @@
 
 html {
     scroll-behavior: smooth;
-    /* Añade esta línea: compensa la altura del header fijo (aprox 120px - 140px) */
-    scroll-padding-top: 130px; 
+    scroll-padding-top: 130px;
 }
+
 /* ==========================================================================
-   VARIABLES DE COLOR (Modo Claro por Defecto / Modo Oscuro Adaptado)
+   VARIABLES DE COLOR (Modo Claro / Modo Oscuro)
    ========================================================================== */
 :root {
-    /* Modo Claro Novedoso (Pastel) */
-    --bg-primary: #C2E2EE;       /* Celeste pastel principal */
-    --bg-secundary: #C2E2EE;     /* Usado en secciones alternas */
-    --bg-cards: #dbdbdb;         /* Gris de los planes */
-    --bg-footer: #7b91ba;        /* Azul grisáceo footer/logo */
-    --text-main: #000000;        /* Negro para títulos y textos */
-    --text-muted: #333333;       /* Gris oscuro para subtítulos */
-    --btn-planes: #ffebd2;       /* Crema/durazno del botón Hero */
+    /* Header → teal/verde azulado */
+    --bg-header:           #C2E2EE;
+    /* Hero → azul muy pálido casi blanco */
+    --bg-primary:          #dff0ff;
+    /* Servicios → celeste medio */
+    --bg-servicios:        #C2E2EE;
+    /* Contenedor interno tarjetas servicios */
+    --bg-services-inner:   rgba(255, 255, 255, 0.45);
+    /* Portafolio → azul medio */
+    --bg-portafolio:       #badcfb;
+    /* Planes → azul muy pálido */
+    --bg-planes:           #dff0ff;
+    /* Tarjetas de planes → beige/crema */
+    --bg-cards:            #D8C8BC;
+    /* Footer → azul más saturado */
+    --bg-footer:           #ADD5FA;
+
+    --text-main:           #000000;
+    --text-muted:          #333333;
+    --btn-planes:          #ffe0b2;
 }
 
-/* Paleta de colores exacta extraída de tu captura en modo oscuro (image_ef7a7c) */
 body.dark-mode {
-    --bg-primary: #181E29;       /* Fondo oscuro profundo del Hero */
-    --bg-secundary: #1E2633;     /* Contraste un poco más claro para Servicios */
-    --bg-cards: #1E2633;         /* Fondos de tarjetas de planes */
-    --bg-footer: #111622;        /* Footer ultra oscuro */
-    --text-main: #A8BCCF;        /* Azul/Gris claro nítido para textos principales */
-    --text-muted: #7E8FA3;       /* Subtextos atenuados */
-    --btn-planes: #415A77;       /* Botón "VER PLANES" adaptado a la oscuridad */
+    --bg-header:           #778DB5;
+    --bg-primary:          #01012d;
+    --bg-servicios:        #778DB5;
+    --bg-services-inner:   #ADD5FA;
+    --bg-portafolio:       #2A3347;
+    --bg-planes:           #01012d;
+    --bg-cards:            #778DB5;
+    --bg-footer:           #778DB5;
+
+    --text-main:           #1A2235;
+    --text-muted:          #252D3D;
+    --btn-planes:          #415A77;
 }
 
 /* ==========================================================================
-   REMPLAZO DE SELECTORES CON VARIABLES
+   BASE
    ========================================================================== */
 body {
     font-family: 'Trebuchet MS', Arial, sans-serif;
-    color: var(--text-main);              
-    background-color: var(--bg-primary);   
+    color: var(--text-main);
+    background-color: var(--bg-primary);
     line-height: 1.5;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave visual */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
 .site-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 4rem;
-    background-color: var(--bg-primary);   
+    background-color: var(--bg-header);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    position: sticky;            
-    top: 0;                      
+    position: sticky;
+    top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
 }
 
-.main-nav {
+@media (min-width: 768px) {
+    .site-header {
+        padding: 1.5rem 5rem;
+    }
+}
+
+/* Logo */
+.logo-container {
     display: flex;
-    gap: 2rem;
-    align-items: center; /* Centra el botón verticalmente con los textos */
+    align-items: center;
 }
 
-/* Modificamos los enlaces del menú para que cambien de color suavemente */
-.main-nav a {
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.hero {
+.logo-index {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 8rem 2rem;
-    background-color: var(--bg-primary);
-    transition: background-color 0.3s ease;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
 }
 
-.hero h1 {
-    font-size: 2.8rem;
-    font-weight: 900;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.5rem;
+.logo-index:hover {
+    transform: scale(1.03);
+}
+
+.logo-index img {
+    height: 42px;
+    width: auto;
+    display: block;
+}
+
+/* Navegación */
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.main-nav a {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
     color: var(--text-main);
+    background-color: var(--bg-header);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.3s ease, transform 0.2s ease;
 }
 
-.hero p {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    max-width: 680px;
-    margin: 0 auto;
+.main-nav a:hover {
+    filter: brightness(0.93);
+    transform: translateY(-1px);
 }
 
-.btn-contacto {
-    display: inline-block;
-    background-color: var(--btn-planes);   
-    color: var(--text-main);              
-    font-weight: 900;            
-    font-size: 0.8rem;           
-    letter-spacing: 0.05em;      
-    padding: 0.7rem 3.5rem;      
-    border-radius: 9999px;       
-    text-decoration: none;       
-    text-align: center;
-    align-self: center;          
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); 
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-
-.servicios-section {
-    background-color: var(--bg-secundary);
-    padding: 5rem 2rem;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.servicios-intro h2 {
-    color: var(--text-main);
-}
-
-.servicios-intro p {
-    color: var(--text-muted);
-}
-
-.plan-card {
-    background-color: var(--bg-cards);   
-    color: var(--text-main);
-    /* ... Tus demás propiedades de border-radius, padding etc se mantienen igual ... */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.site-footer {
-    background-color: var(--bg-footer);   
-    color: var(--text-main);
-    /* ... Conserva tus rellenos de padding existentes ... */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Estilo estético para el botón contenedor del icono de luz */
+/* Botón de tema */
 .btn-theme {
     background: none;
     border: none;
@@ -166,68 +155,8 @@ body {
     display: block;
 }
 
-
-/* Contenedor del Logo (Estilo de la figura image_f14742) */
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo-index {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.logo-index:hover {
-    transform: scale(1.03);
-}
-
-/* Si usan una imagen transparente para la "N" estilizada */
-.logo-index img {
-    height: 42px;
-    width: auto;
-    display: block;
-    margin-bottom: 0.2rem;
-}
-
-/* Texto INDEX debajo de la figura */
-.logo-text {
-    color: #000000;
-    font-size: 1.15rem;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    line-height: 1;
-}
-
-/* Menú de Navegación */
-.main-nav {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.main-nav a {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    color: #000000;
-    background-color: #C2E2EE;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.main-nav a:hover {
-    background-color: #dcedf6;  
-
-    transform: translateY(-1px);
-}
-
 /* ==========================================================================
-   3. SECCIÓN HERO (PLASMA TUS IDEAS)
+   HERO
    ========================================================================== */
 .hero {
     display: flex;
@@ -236,7 +165,8 @@ body {
     align-items: center;
     text-align: center;
     padding: 8rem 2rem;
-    background-color: #e3f2fd;   /* Bloque superior de la imagen */
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
 }
 
 .hero-content {
@@ -249,29 +179,30 @@ body {
     font-weight: 900;
     letter-spacing: 0.02em;
     margin-bottom: 1.5rem;
-    color: #000000;
+    color: var(--text-main);
 }
 
 .hero p {
     font-size: 1.05rem;
-    color: #333333;
+    color: var(--text-muted);
     max-width: 680px;
     margin: 0 auto;
 }
 
-/* Botón "VER PLANES" (Estilo píldora color crema/durazno) */
+/* Botón "VER PLANES" */
 .btn-contacto {
     display: inline-block;
-    background-color: #ffe0b2;   /* Color crema/durazno pastel de la maqueta */
-    color: #000000;
+    background-color: var(--btn-planes);
+    color: var(--text-main);
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.05em;
     padding: 0.8rem 3.5rem;
-    border-radius: 9999px;       /* Forma de píldora redonda */
+    border-radius: 9999px;
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(255, 224, 178, 0.3);
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.3s ease;
+    animation: pulse 2s infinite alternate;
 }
 
 .btn-contacto:hover {
@@ -279,38 +210,27 @@ body {
     transform: scale(1.04);
 }
 
-        .btn-contacto {
-            animation: pulse 2s infinite alternate;
-        }
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0    rgba(38, 35, 27, 0.4); }
+    70%  { box-shadow: 0 0 0 10px rgba(200, 178, 115, 0); }
+    100% { box-shadow: 0 0 0 0    rgba(200, 178, 115, 0); }
+}
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(38, 35, 27, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(200, 178, 115, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(200, 178, 115, 0);
-            }
-        }
-
-/* Línea divisora decorativa azul grisácea */
-.divider-blue {
-    background-color: #a3b4cf;
-    height: 20px;
+/* Línea divisora */
+.divider-line {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08);
     width: 100%;
 }
 
 /* ==========================================================================
-   4. SECCIÓN SERVICIOS
+   SERVICIOS
    ========================================================================== */
 .servicios-section {
-    background-color: #C2E2EE;   /* Bloque celeste pastel central de la imagen */
+    background-color: var(--bg-servicios);
     padding: 6rem 2rem;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .servicios-intro {
@@ -321,19 +241,18 @@ body {
 .servicios-intro h2 {
     font-size: 2.4rem;
     font-weight: 900;
-    color: #000000;
+    color: var(--text-main);
     margin-bottom: 1.5rem;
 }
 
 .servicios-intro p {
     font-size: 1rem;
     font-weight: 500;
-    color: #000000;
+    color: var(--text-muted);
 }
 
-/* Contenedor transparente/blanco para las tarjetas */
 .services-container {
-    background-color: rgba(255, 255, 255, 0.4); /* Blanco traslúcido elegante */
+    background-color: var(--bg-services-inner);
     border-radius: 1.5rem;
     max-width: 1150px;
     margin: 0 auto;
@@ -347,18 +266,29 @@ body {
     gap: 2.5rem;
 }
 
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 .service-card {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Contenedores de previsualización/imágenes de los servicios */
 .card-preview {
     width: 100%;
     max-width: 220px;
     aspect-ratio: 1 / 1;
-    border-radius: 1.5rem;       /* Bordes muy suaves como las capturas */
+    border-radius: 1.5rem;
     margin-bottom: 1.2rem;
     background-size: cover;
     background-position: center;
@@ -369,16 +299,16 @@ body {
 }
 
 .preview-1 {
-    background-color: #111827;   /* Tarjeta de código oscura */
+    background-color: #111827;
     border: 1px solid #1e3a8a;
 }
 
 .preview-2 {
-    background-color: #0891b2;   /* Tarjeta de rediseño cian */
+    background-color: #0891b2;
 }
 
 .preview-3 {
-    background-color: #e5e7eb;   /* Tarjetas vacías grises con borde discontinuo */
+    background-color: #e5e7eb;
     border: 2px dashed #9ca3af;
 }
 
@@ -387,121 +317,120 @@ body {
     border: 2px dashed #9ca3af;
 }
 
-/* Fallbacks de iconos por si no cargan imágenes de fondo */
-.icon-code::before { content: "</>"; color: #34d399; font-family: monospace; font-size: 2rem; font-weight: bold; }
-.icon-design::before { content: "📱"; font-size: 2.5rem; }
-.icon-social::before { content: "🔗"; font-size: 2.5rem; }
-.icon-support::before { content: "⚙️"; font-size: 2.5rem; }
-
 .service-card p {
     font-size: 0.85rem;
     font-weight: bold;
-    color: #000000;
+    color: var(--text-main);
     max-width: 200px;
+    text-align: center;
 }
-/* --- SECCIÓN PORTAFOLIO (Estilo maqueta Iluska) --- */
-        .portafolio-section {
-            background-color: #BADCFB; /* Tono azul grisáceo exacto del fondo del carrusel */
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .portafolio-section h2 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #000000;
-            margin-bottom: 0.5rem;
-        }
-
-        .portafolio-section p {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: #000000;
-            margin-bottom: 3.5rem;
-        }
-
-        /* Contenedor principal que alinea flechas y contenido */
-        .carousel-container {
-            max-width: 1050px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem; /* Espaciado entre las flechas y la pantalla del proyecto */
-        }
-
-        /* Ventana que enmarca el proyecto imitando un monitor/pantalla */
-        .carousel-window {
-            flex: 1;
-            max-width: 780px;
-            background-color: #000000; /* Fondo negro de la pantalla */
-            border-radius: 4px;        /* Bordes ligeramente suavizados */
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra elegante debajo del mockup */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Ítem del portafolio e imagen */
-        .portfolio-item {
-            width: 100%;
-            display: none; /* Oculto por defecto para cuando manejes múltiples proyectos */
-        }
-
-        .portfolio-item.active {
-            display: block; /* Solo se muestra el proyecto activo */
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: auto;
-            display: block; /* Elimina espacios residuales inferiores de la imagen */
-        }
-
-        /* Flechas de navegación blancas y grandes */
-        .carousel-arrow {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 5rem; /* Tamaño grande idéntico a la imagen de referencia */
-            font-family: sans-serif;
-            cursor: pointer;
-            user-select: none;
-            transition: transform 0.2s, color 0.2s;
-            line-height: 1;
-        }
-
-        .carousel-arrow:hover {
-            color: #e3f2fd;
-            transform: scale(1.1); /* Efecto dinámico sutil al pasar el cursor */
-        }
-
-        .carousel-arrow:active {
-            transform: scale(0.95);
-        }
-
-        /* --- RESPONSIVE PARA EL CARRUSEL --- */
-        @media (max-width: 768px) {
-            .carousel-container {
-                gap: 1rem;
-            }
-            
-            .carousel-arrow {
-                font-size: 3.5rem; /* Reducción de flechas en dispositivos móviles */
-            }
-            
-            .portafolio-section {
-                padding: 4rem 1rem;
-            }
-        }
 
 /* ==========================================================================
-   6. SECCIÓN PLANES
+   PORTAFOLIO
+   ========================================================================== */
+.portafolio-section {
+    background-color: var(--bg-portafolio);
+    padding: 5rem 2rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .portafolio-section {
+        padding: 4rem 1rem;
+    }
+}
+
+.portafolio-section h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.portafolio-section p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 3.5rem;
+}
+
+.carousel-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        gap: 1rem;
+    }
+}
+
+.carousel-window {
+    flex: 1;
+    max-width: 780px;
+    background-color: #000000;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-item {
+    width: 100%;
+    display: none;
+}
+
+.portfolio-item.active {
+    display: block;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-arrow {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 5rem;
+    font-family: sans-serif;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .carousel-arrow {
+        font-size: 3.5rem;
+    }
+}
+
+.carousel-arrow:hover {
+    filter: brightness(0.7);
+    transform: scale(1.1);
+}
+
+.carousel-arrow:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================================================
+   PLANES
    ========================================================================== */
 .planes-section {
     padding: 7rem 2rem;
-    background-color: #e3f2fd;   /* Mismo fondo pastel que el Hero */
+    background-color: var(--bg-planes);
+    transition: background-color 0.3s ease;
 }
 
 .planes-container {
@@ -514,11 +443,19 @@ body {
     gap: 4rem;
 }
 
-/* Tarjeta gris con mega bordes circulares de la maqueta image_f1a572 */
+@media (min-width: 768px) {
+    .planes-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        gap: 3rem;
+    }
+}
+
 .plan-card {
-    background-color: #dbdbdb;   /* Color gris claro de fondo de los planes */
-    color: #000000;
-    border-radius: 3.5rem;       /* Bordes curvos masivos idénticos al diseño */
+    background-color: var(--bg-cards);
+    color: var(--text-main);
+    border-radius: 3.5rem;
     padding: 3.5rem 2.5rem;
     width: 100%;
     max-width: 25rem;
@@ -526,11 +463,7 @@ body {
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-/* Borde morado destacado para el Plan Avanzado (Izquierda) */
-.plan-card-advanced {
-    border: 4px solid #8b5cf6;   
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .plan-card h3 {
@@ -550,7 +483,7 @@ body {
 .plan-card li {
     font-size: 0.85rem;
     font-weight: bold;
-    color: #000000;
+    color: var(--text-main);
     display: flex;
     align-items: flex-start;
 }
@@ -562,13 +495,14 @@ body {
 }
 
 /* ==========================================================================
-   7. FOOTER / CONTACTO (Estilo exacto de image_f1a554)
+   FOOTER / CONTACTO
    ========================================================================== */
 .site-footer {
-    background-color: #ADD5FA;   /* Fondo azul grisáceo del footer */
-    color: #000000;
+    background-color: var(--bg-footer);
+    color: var(--text-main);
     padding: 5rem 2rem;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-container {
@@ -579,85 +513,7 @@ body {
     gap: 3rem;
 }
 
-/* Columna del Logo en el Footer */
-.footer-logo-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-logo-wrapper img {
-    height: 110px;
-    width: auto;
-    display: block;
-}
-
-/* Columnas de Contenido */
-.footer-column {
-    text-align: center;
-}
-
-.footer-column h4 {
-    font-size: 1.2rem;
-    font-weight: 900;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.02em;
-}
-
-.contact-block {
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: #000000;
-}
-
-.contact-name {
-    font-weight: 900;
-}
-
-/* Separadores sutiles entre contactos (----) */
-.contact-separator {
-    width: 2.5rem;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.2);
-    margin: 0.8rem auto;
-}
-
-/* Lista de servicios del footer */
-.footer-services-list {
-    list-style: none;
-    font-size: 0.85rem;
-    font-weight: bold;
-    display: inline-block;
-    text-align: left;
-}
-
-.footer-services-list li {
-    margin-bottom: 0.6rem;
-}
-
-/* ==========================================================================
-   8. MEDIA QUERIES (Responsividad para Tablets y Computadores)
-   ========================================================================== */
 @media (min-width: 768px) {
-    /* Header */
-    .site-header {
-        padding: 1.5rem 5rem;
-    }
-
-    /* Servicios Grid a 2 columnas */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Contenedor de planes en paralelo */
-    .planes-container {
-        flex-direction: row;
-        justify-content: center;
-        align-items: stretch;
-        gap: 3rem;
-    }
-
-    /* Footer distribuido en 3 columnas alineadas */
     .footer-container {
         grid-template-columns: repeat(3, 1fr);
         align-items: start;
@@ -680,49 +536,83 @@ body {
     }
 }
 
-@media (min-width: 1024px) {
-    /* Grid de Servicios completo a 4 columnas */
-    .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+.footer-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-/* ====== Botón flotante WhatsApp ====== */
+
+.footer-logo-wrapper img {
+    height: 110px;
+    width: auto;
+    display: block;
+}
+
+.footer-column {
+    text-align: center;
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.contact-block {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.contact-name {
+    font-weight: 900;
+}
+
+.contact-separator {
+    width: 2.5rem;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0.8rem auto;
+}
+
+.footer-services-list {
+    list-style: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+}
+
+.footer-services-list li {
+    margin-bottom: 0.6rem;
+}
+
+/* ==========================================================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================================================== */
 .boton-whatsapp {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #25D366;
-  color: white;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: transform 0.3s;
-  z-index: 1000;
-  text-decoration: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+    text-decoration: none;
 }
 
 .boton-whatsapp:hover {
-  transform: scale(1.1);
-  background: #1ebe5d;
-  color: #ffffff;
-}
-
-/* Ajuste interactivo para pantallas móviles */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 52px;
-        height: 52px;
-        bottom: 20px;
-        right: 20px;
-    }
-    .whatsapp-float img {
-        width: 30px;
-        height: 30px;
-    }
+    transform: scale(1.1);
+    background: #1ebe5d;
+    color: #ffffff;
 }

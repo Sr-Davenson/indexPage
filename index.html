@@ -116,7 +116,7 @@
         </div>
     </section>
 
-    <footer id="contacto" class="site-footer">
+ <footer id="contacto" class="site-footer">
         <div class="footer-container">
             
             <div class="footer-logo-wrapper">
@@ -173,24 +173,26 @@
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
 
-        // Al cargar la página, comprueba si el usuario ya tenía activo el modo oscuro
+        const ICON_LIGHT = 'assets/resources/light_mode.svg';
+        const ICON_DARK  = 'assets/resources/dark_mode.svg';
+
+        // Al cargar la página, restaura el tema guardado
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
-            // Cambia el source del icono al que corresponda en modo oscuro (puedes usar un icono de luna o de switch modificado)
-            themeIcon.src = 'assets/resources/light_mode.svg'; 
+            themeIcon.src = ICON_DARK;
+        } else {
+            themeIcon.src = ICON_LIGHT;
         }
 
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            
-            // Verificamos qué modo quedó activo para guardarlo en la memoria del navegador
+
             if (document.body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
-                // Opcional: Si tienes un archivo svg diferente para cuando esté oscuro, cámbialo aquí
-                // themeIcon.src = 'assets/resources/dark_mode_icon.svg';
+                themeIcon.src = ICON_DARK;
             } else {
                 localStorage.setItem('theme', 'light');
-                themeIcon.src = 'assets/resources/light_mode.svg';
+                themeIcon.src = ICON_LIGHT;
             }
         });
     </script>
