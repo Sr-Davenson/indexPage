@@ -17,7 +17,13 @@
                 <img src="assets/resources/logo.png" alt="INDEX LOGO">
         </a>
     </div>
-<nav class="main-nav">
+<button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<nav class="main-nav" id="main-nav">
             <a href="#servicios">SERVICIOS</a>
             <a href="#portafolio">PORTAFOLIO</a>
             <a href="#contacto">CONTÁCTENOS</a>
@@ -155,6 +161,25 @@
     </footer>
   <a href="https://wa.me/+573219306406" target="_blank" class="boton-whatsapp"><i class="fab fa-whatsapp"></i></a>
     <script>
+        // Menú hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        const mainNav   = document.getElementById('main-nav');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('nav-open');
+            hamburger.classList.toggle('is-active', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Cierra el menú al hacer clic en un enlace
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('nav-open');
+                hamburger.classList.remove('is-active');
+                hamburger.setAttribute('aria-expanded', false);
+            });
+        });
+
         document.querySelectorAll('.main-nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault(); // Evita el salto brusco instantáneo
