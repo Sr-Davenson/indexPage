@@ -18,7 +18,7 @@
     <header class="site-header">
         <div class="logo-container">
             <a href="index.html" class="logo-index">
-                <img src="assets/resources/logo.png" alt="INDEX LOGO">
+                <img id="site-logo" src="assets/resources/logo.png" alt="INDEX LOGO">
             </a>
         </div>
 
@@ -175,7 +175,7 @@
     <footer id="contacto" class="site-footer">
         <div class="footer-container">
             <div class="footer-logo-wrapper">
-                <img src="assets/resources/logo.png" alt="INDEX LOGO LARGE">
+                <img id="footer-logo" src="assets/resources/logo.png" alt="INDEX LOGO LARGE">
             </div>
             <div class="footer-column">
                 <h4>Datos de contacto</h4>
@@ -244,11 +244,19 @@
         const ICON_LIGHT = 'assets/resources/light_mode.svg';
         const ICON_DARK  = 'assets/resources/dark_mode.svg';
 
+        const LOGO_LIGHT  = 'assets/resources/logo.png';
+        const LOGO_DARK   = 'assets/resources/logo dark.png';
+        const siteLogo    = document.getElementById('site-logo');
+        const footerLogo  = document.getElementById('footer-logo');
+
         function applyTheme(dark) {
             document.body.classList.toggle('dark-mode', dark);
             const icon = dark ? ICON_DARK : ICON_LIGHT;
             themeIcon.src        = icon;
             themeIconDesktop.src = icon;
+            const logo = dark ? LOGO_DARK : LOGO_LIGHT;
+            siteLogo.src   = logo;
+            footerLogo.src = logo;
         }
 
         applyTheme(localStorage.getItem('theme') === 'dark');
@@ -263,22 +271,55 @@
         themeToggleDesktop.addEventListener('click', toggleTheme);
 
         // ── Carrusel ──────────────────────────────────────────────────────
-        const items     = document.querySelectorAll('.portfolio-item');
+        const items      = document.querySelectorAll('.portfolio-item');
         const arrowLeft  = document.querySelector('.arrow-left');
         const arrowRight = document.querySelector('.arrow-right');
-        let current = 0;
+        let current    = 0;
+        let isAnimating = false;
 
         function showSlide(n) {
-            items[current].classList.remove('active');
+            if (isAnimating || items.length <= 1) return;
+            isAnimating = true;
+
+            const prev = current;
             current = (n + items.length) % items.length;
-            items[current].classList.add('active');
+
+            // El saliente se lleva a posición absoluta para que no ocupe espacio
+            const prevItem = items[prev];
+            const nextItem = items[current];
+
+            // Fija altura del contenedor durante el fade
+            const win = document.querySelector('.carousel-window');
+            win.style.height = prevItem.offsetHeight + 'px';
+
+            // Saca el activo a absoluto y mete el nuevo
+            prevItem.style.position = 'absolute';
+            prevItem.style.opacity  = '0';
+            nextItem.classList.add('active');
+
+            // Tras la transición, limpia
+            setTimeout(() => {
+                prevItem.classList.remove('active');
+                prevItem.style.position = '';
+                prevItem.style.opacity  = '';
+                win.style.height = '';
+                isAnimating = false;
+            }, 700);
         }
 
         arrowLeft.addEventListener('click',  () => showSlide(current - 1));
         arrowRight.addEventListener('click', () => showSlide(current + 1));
 
-        // Auto-avance cada 4 s
-        setInterval(() => showSlide(current + 1), 4000);
+        // Auto-avance cada 5 s
+        let autoPlay = setInterval(() => showSlide(current + 1), 5000);
+
+        // Pausa al interactuar
+        [arrowLeft, arrowRight].forEach(btn => {
+            btn.addEventListener('click', () => {
+                clearInterval(autoPlay);
+                autoPlay = setInterval(() => showSlide(current + 1), 5000);
+            });
+        });
     </script>
 </body>
 </html>
