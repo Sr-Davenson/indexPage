@@ -7,16 +7,16 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 140px; /* Ajusta este valor según la altura real de tu header */
+    /* Añade esta línea: compensa la altura del header fijo (aprox 120px - 140px) */
+    scroll-padding-top: 130px; 
 }
 
 body {
     font-family: 'Trebuchet MS', Arial, sans-serif;
-    color: #000000;              /* Texto negro nítido de la referencia */
-    background-color: #C2E2EE;   /* Fondo azul pastel claro principal */
+    color: #000000;              
+    background-color: #C2E2EE;   
     line-height: 1.5;
 }
-
 /* ==========================================================================
    2. HEADER / BARRA DE NAVEGACIÓN (SLIDER BAR)
    ========================================================================== */

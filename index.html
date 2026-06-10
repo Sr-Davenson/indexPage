@@ -150,6 +150,22 @@
         </div>
     </footer>
   <a href="https://wa.me/+573219306406" target="_blank" class="boton-whatsapp"><i class="fab fa-whatsapp"></i></a>
-  <script src="assets/Js/scriptIndex.js"></script>
+    <script>
+        document.querySelectorAll('.main-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Evita el salto brusco instantáneo
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start' // Alinea el inicio de la sección con la parte superior
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
